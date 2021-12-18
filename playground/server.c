@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:34:22 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/17 18:05:43 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/17 21:52:20 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 #include <time.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include "ft_printf/ft_printf.h"
 
 static g_bits a;
 
 // 30 = 0x001E =	0000 0000 0001 1110			31 = 0x001F = 	0000 0000 0001 1111
 // 				0000 0000 0000 0001							0000 0000 0000 0001
 // 			&	0000 0000 0000 0000						&	0000 0000 0000 0001
+
 void	handler(int sig)
 {
 	a.c = sig & 1;
