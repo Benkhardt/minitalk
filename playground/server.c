@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:34:22 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/18 17:20:35 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:35:27 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int count;
 
 void	handler(int sig)
 {
-	a.c = sig & 1;
+	a.c += (sig & 1) << shift;
 	if (!a.c)
 		ft_putstr_fd("SIGUSR1 received\n", 1); 
 	else
