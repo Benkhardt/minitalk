@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 01:57:14 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/18 17:20:38 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:24:54 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	send_str(int pid, char *str)
 	}
 }
 
-
-
 int main(int argv, char *argc[])
 {
 	int pid;
@@ -73,7 +71,7 @@ int main(int argv, char *argc[])
 		ft_putstr_fd("Usage: ./client [server_pid] [str_to_send]", 1);
 		return (-1);
 	}
-	pid = atoi(argc[1]); // has to be changed for final submit...
+	pid = ft_atoi(argc[1]);
 	ft_putstr_fd("PID is: ", 1);
 	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\n", 1);
