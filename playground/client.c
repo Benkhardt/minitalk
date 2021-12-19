@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 01:57:14 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/18 18:24:54 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/19 17:21:31 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,15 @@ void	send_char(int pid, int c)
 	while (shift < 7)
 	{
 		if ((c >> shift) & 1)
+		{
+			ft_putstr_fd("Sending 1\n", 1);
 			kill(pid, SIGUSR2);
+		}
 		else
+		{
+			ft_putstr_fd("Sending 0\n", 1);
 			kill(pid, SIGUSR1);
+		}
 		shift++;
 		usleep(100);
 	}

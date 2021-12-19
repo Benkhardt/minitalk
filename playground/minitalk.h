@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:41:17 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/17 18:05:11 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/19 17:18:50 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ typedef struct h_bits
 {
 	int	c;
 	int	size;
+	int signal;
+	int count;
 
 }	g_bits;
+
+extern int b;
 
 void	handler(int sig);
 

@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:34:22 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/18 18:35:27 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/19 17:18:40 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <signal.h>
 
 static g_bits a;
-static int count;
+// static int count; // for testing
 
 // 30 = 0x001E =	0000 0000 0001 1110			31 = 0x001F = 	0000 0000 0001 1111
 // 				0000 0000 0000 0001							0000 0000 0000 0001
@@ -28,15 +28,35 @@ static int count;
 
 void	handler(int sig)
 {
-	a.c += (sig & 1) << shift;
-	if (!a.c)
-		ft_putstr_fd("SIGUSR1 received\n", 1); 
+	sig = sig & 1;
+	if (!sig)
+	{
+		a.c += sig << a.size;
+		// ft_putstr_fd("0 received\n", 1); 
+	}
 	else
-		ft_putstr_fd("SIGUSR2 received\n", 1);
-	count++;
-	ft_putstr_fd("Signal counter: ", 1);
-	ft_putnbr_fd(count, 1);
-	ft_putstr_fd("\n", 1);
+	{
+		 a.c += sig << a.size;
+		// ft_putstr_fd("1 received\n", 1);
+	}
+	a.size++;
+	if (a.size == 7)
+	{
+		if ((char)a.c == '\0')
+		{
+			ft_putchar_fd('\n', 1);
+			a.c = 0;
+			a.size = 0;
+			return;
+		}
+		ft_putchar_fd((char)a.c, 1);
+		a.c = 0;
+		a.size = 0;
+	}
+	// count++;
+	//ft_putstr_fd("Signal counter: ", 1);
+	//ft_putnbr_fd(count, 1); // .. same (testing)
+	//ft_putstr_fd("\n", 1);
 }
 
 int	main(void)
@@ -46,7 +66,7 @@ int	main(void)
 	pid = getpid();
 	a.c = 0;
 	a.size = 0;
-	count = 0;
+	// count = 0;
 	ft_putstr_fd("Waiting for Signal\n", 1);
 	ft_putstr_fd("pid is: ", 1);
 	ft_putnbr_fd(pid, 1);
