@@ -6,17 +6,12 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 01:57:14 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/20 11:20:46 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/20 16:09:48 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
-#include <errno.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <time.h>
-#include <sys/wait.h>
 #include <signal.h>
 
 /*
