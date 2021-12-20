@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:34:22 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/20 10:44:07 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/20 11:20:31 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 ** over these signals to the handler()
 ** where a char is build and gets printed
 ** by a libft function after we received 7
-** signals. This is pretty much basic.
+** signals. This is pretty much basic and 
+** can handle clients only in a row, not
+** simultaneously.
 */
 
 // we need one global struct to make it accessable 
@@ -36,7 +38,7 @@ static t_bits	g_a;
 
 // handler()
 // handler() is translating 7 received signals
-// into a char and prints it to standard out.
+// into a char and puts it to standard out.
 
 void	handler(int sig)
 {
@@ -62,7 +64,7 @@ void	handler(int sig)
 }
 
 // main() is waiting for signals and will
-// use handler() for  
+// use handler() for translating.
 
 int	main(void)
 {

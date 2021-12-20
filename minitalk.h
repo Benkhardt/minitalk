@@ -6,14 +6,14 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:41:17 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/20 11:20:51 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/20 11:21:40 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include "/libft/libft.h"
+# include "./libft/libft.h"
 
 # ifndef S_TIMEOUT
 #  define S_TIMEOUT 150
